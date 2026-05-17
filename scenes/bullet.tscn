@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjchr14d5vaqm"]
+
+[ext_resource type="Script" uid="uid://dgu4il7suffo4" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://dgt3hpmsuaax" path="res://assets/pngtree-retro-pixel-art-music-note-icon-png-image_18522199-removebg-preview.png" id="2_l5glv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoqba"]
+size = Vector2(13, 31)
+
+[node name="bullet" type="Area2D" unique_id=591937225]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_y25gk")
+
+[node name="bulletSprite" type="Sprite2D" parent="." unique_id=820638473]
+scale = Vector2(0.0825928, 0.0825928)
+texture = ExtResource("2_l5glv")
+
+[node name="bulletCollision" type="CollisionShape2D" parent="." unique_id=75115500]
+position = Vector2(-2, 2.0000007)
+scale = Vector2(0.65549845, 0.65549845)
+shape = SubResource("RectangleShape2D_eoqba")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=547167852]
+scale = Vector2(0.65549845, 0.65549845)

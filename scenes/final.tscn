@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cyuj1ttv1qttb"]
+
+[ext_resource type="Script" uid="uid://bgogmcid8q5wp" path="res://scripts/final.gd" id="1_qkvop"]
+[ext_resource type="Texture2D" uid="uid://uqtw3abuh5if" path="res://assets/pixel-art-illustration-hip-hop-260nw-2560264973-removebg-preview.png" id="2_bfp0d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu8b3"]
+atlas = ExtResource("2_bfp0d")
+region = Rect2(0, 0, 260, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xkto"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu8b3")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tqcyk"]
+size = Vector2(62, 68.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkvop"]
+size = Vector2(209, 83)
+
+[node name="finalBoss" type="CharacterBody2D" unique_id=1209452740 groups=["boss"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_qkvop")
+
+[node name="finalSprite" type="AnimatedSprite2D" parent="." unique_id=27645509]
+position = Vector2(1.9073486e-06, -36)
+scale = Vector2(0.49615383, 0.49615386)
+sprite_frames = SubResource("SpriteFrames_1xkto")
+animation = &"new_animation"
+
+[node name="finalHitbox" type="CollisionShape2D" parent="." unique_id=2113654389]
+position = Vector2(0, -34)
+shape = SubResource("RectangleShape2D_tqcyk")
+
+[node name="shootPoint1" type="Marker2D" parent="." unique_id=981377448]
+position = Vector2(-32, -20)
+
+[node name="shootPoint2" type="Marker2D" parent="." unique_id=1849719864]
+position = Vector2(-33, -58)
+
+[node name="shootTimer" type="Timer" parent="." unique_id=1382214824]
+
+[node name="finalKnock" type="Area2D" parent="." unique_id=2098303938 groups=["boss"]]
+collision_layer = 8
+collision_mask = 4
+
+[node name="collision" type="CollisionShape2D" parent="finalKnock" unique_id=1043084799]
+position = Vector2(-142.5, -41.5)
+shape = SubResource("RectangleShape2D_qkvop")
